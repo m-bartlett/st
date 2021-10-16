@@ -1,0 +1,44 @@
+diff --git a/config.def.h b/config.def.h
+index d82c65f..0849d80 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -203,6 +203,8 @@ static Shortcut shortcuts[] = {
+  { ShiftMask,            XK_Down,        kscrolldown,    {.i =  1} },
+ 	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
+ 	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
++	{ TERMMOD,              XK_L,           resethistory,   {.i =  0} },
++
+ };
+ 
+ /*
+diff --git a/st.c b/st.c
+index 8eba0a8..efa7d2b 100644
+--- a/st.c
++++ b/st.c
+@@ -2024,6 +2024,14 @@ strreset(void)
+ 	};
+ }
+ 
++void
++resethistory(const Arg* arg)
++{
++	term.histi = 0;
++	treset();
++}
++
++
+ void
+ sendbreak(const Arg *arg)
+ {
+diff --git a/st.h b/st.h
+index f44e1d3..5f9df5f 100644
+--- a/st.h
++++ b/st.h
+@@ -83,6 +83,7 @@ void draw(void);
+ 
+ void kscrolldown(const Arg *);
+ void kscrollup(const Arg *);
++void resethistory(const Arg *);
+ void printscreen(const Arg *);
+ void printsel(const Arg *);
+ void sendbreak(const Arg *);
