@@ -2,10 +2,7 @@ diff --git a/config.def.h b/config.def.h
 index 6f05dce..6ad0cf1 100644
 --- a/config.def.h
 +++ b/config.def.h
-@@ -191,9 +191,9 @@ static Shortcut shortcuts[] = {
- 	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
- 	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
- 	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
+@@ -191,6 +191,6 @@
 -	{ TERMMOD,              XK_Prior,       zoom,           {.f = +1} },
 -	{ TERMMOD,              XK_Next,        zoom,           {.f = -1} },
 -	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },

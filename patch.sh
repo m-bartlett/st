@@ -11,7 +11,7 @@ PATCHES=(
   scrollback-clearhistory
   # anysize
   # vertcenter
-  # blinking_cursor
+  blinking_cursor
 
   # font2
   font-zoom-remap
@@ -20,8 +20,7 @@ PATCHES=(
   # csi_22_23-save-and-restore-window-title
   delkey
   # keyboard-select
-  # newterm
-  # newterm-orphan
+  newterm-orphan
   w3m
 )
 
@@ -31,7 +30,7 @@ warn() { printf "\e[33m$@\e[0m\n"; }
 for p in ${PATCHES[@]}; do
   echo
   info $p
-  patch < "patches/$p."*
+  patch -F3 < "patches/$p."*
   if (($?)); then
     warn "$p did not apply successfully"; sleep 0.75
     break

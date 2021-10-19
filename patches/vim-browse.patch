@@ -2,15 +2,12 @@ diff --git a/Makefile b/Makefile
 index 470ac86..6688a58 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -21,7 +21,7 @@ config.h:
+@@ -21,4 +21,4 @@ config.h:
  .c.o:
- 	$(CC) $(STCFLAGS) -c $<
+  $(CC) $(STCFLAGS) -c $<
  
 -st.o: config.h st.h win.h
 +st.o: config.h st.h win.h normalMode.h normalMode.c utils.h
- x.o: arg.h config.h st.h win.h
- 
- $(OBJ): config.h config.mk
 diff --git a/config.def.h b/config.def.h
 index 6f05dce..16cb5e1 100644
 --- a/config.def.h
