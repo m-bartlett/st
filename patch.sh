@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 PATCHES=(
-  # vim-browse
   boxdraw
   ligatures-boxdraw
   xresources-usr1-reload
@@ -22,6 +21,7 @@ PATCHES=(
   # keyboard-select
   newterm-orphan
   w3m
+  vim-browse-custom
 )
 
 info() { printf "\e[34m$@\e[0m\n"; }
