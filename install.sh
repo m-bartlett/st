@@ -27,12 +27,20 @@ PATCHES=(
 info() { printf "\e[34m$@\e[0m\n"; }
 warn() { printf "\e[33m$@\e[0m\n"; }
 
+__dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+pushd "$__dir"
+
 for p in ${PATCHES[@]}; do
   echo
   info $p
   patch -F3 < "patches/$p."*
   if (($?)); then
     warn "$p did not apply successfully"; sleep 0.75
-    break
+    exit 1
   fi
 done
+
+make && sudo make install
+make clean || true
+git clean -df
+git reset --hard
