@@ -18,10 +18,8 @@ PATCHES=(
   # clipboard
   # csi_22_23-save-and-restore-window-title
   delkey
-  # keyboard-select
   newterm-orphan
   w3m
-  vim-browse-custom
 )
 
 info() { printf "\e[34m$@\e[0m\n"; }
