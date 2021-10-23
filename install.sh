@@ -3,11 +3,10 @@
 PATCHES=(
   boxdraw
   ligatures-boxdraw
-  xresources-usr1-reload
-  scrollback
-  scrollback-mouse
-  scrollback-mouse-altscreen
-  scrollback-clearhistory
+  # scrollback
+  # scrollback-mouse
+  # scrollback-mouse-altscreen
+  # scrollback-clearhistory
   # anysize
   # vertcenter
   blinking_cursor
@@ -18,8 +17,11 @@ PATCHES=(
   # clipboard
   # csi_22_23-save-and-restore-window-title
   delkey
+  # keyboard-select
   newterm-orphan
   w3m
+  xresources-usr1-reload
+  # vim-browse-custom
 )
 
 info() { printf "\e[34m$@\e[0m\n"; }
