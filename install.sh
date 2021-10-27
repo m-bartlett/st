@@ -25,17 +25,16 @@ PATCHES=(
   # vim-browse-custom
 )
 
-export _TMPDIR="$(mktemp -d "$/tmp/tmp.XXXXXXXX")";
-trap "rm -rfv $_TMPDIR" RETURN;
-pushd "$_TMPDIR"
+export _TMPDIR="$(mktemp -d "/tmp/tmp.XXXXXXXX")";
+trap "rm -rf $_TMPDIR" EXIT;
 
 info() { printf "\e[34m$@\e[0m\n"; }
 warn() { printf "\e[33m$@\e[0m\n"; }
 
 __dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-cp -r "$__dir" "$_TMPDIR"
-pushd "$_TMPDIR"
+cp -r "$__dir" "$_TMPDIR/"
+cd "$_TMPDIR/$(basename "$__dir")"
 
 for p in ${PATCHES[@]}; do
   echo
@@ -46,7 +45,5 @@ for p in ${PATCHES[@]}; do
     exit 1
   fi
 done
-
-echo 'cp -r ~/Projects/st . ; cd st ; ./install.sh' | tmpdir ; st
 
 make && sudo make install
