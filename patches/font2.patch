@@ -22,8 +22,8 @@ index 482901e..676719e 100644
  static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
 +/* Spare fonts */
 +static char *font2[] = {
-+ /*"DejaVu Sans:pixelsize=18:antialias=true:autohint=true",*/
-+ /*"Symbola:pixelsize=18:antialias=true:autohint=true",*/
++ "JoyPixels:pixelsize=12.5:antialias=true:autohint=true",
++ /*"Symbola:pixelsize=14:antialias=true:autohint=true",*/
 +};
 +
  static int borderpx = 2;
