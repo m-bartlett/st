@@ -113,12 +113,13 @@ index 210f184..17ee766 100644
 +
 +		/* XRESOURCE_LOAD_CHAR("prompt_char", prompt_char); */
 +	}
-+	XFlush(dpy);
++	XFlush(dpy); XCloseDisplay(dpy);
 +}
 +
 +void
 +reload(int sig)
 +{
++ struct sigaction sa_action={.sa_handler=SIG_IGN, .sa_flags = 0};sigaction(SIGUSR2, (const struct sigaction * restrict)&(sa_action), NULL );
 +	xrdb_load();
 +
 +	/* colors, fonts */
@@ -132,20 +133,21 @@ index 210f184..17ee766 100644
 +	redraw();
 +
 +	/* triggers re-render if we're visible. */
-+	ttywrite("\033[O", 3, 1);
-+
-+	signal(SIGUSR2, reload);
++	/*ttywrite("\033[O", 3, 1);*/
++ /*signal(SIGUSR2, reload);*/ sa_action.sa_handler=reload; sigaction(SIGUSR1, (const struct sigaction * restrict)&sa_action, NULL); sigaction(SIGUSR2, (const struct sigaction * restrict)&sa_action, NULL);
 +}
 +
  void
  usage(void)
  {
-@@ -2037,6 +2161,8 @@ run:
+@@ -2037,6 +2161,10 @@ run:
  
  	setlocale(LC_CTYPE, "");
  	XSetLocaleModifiers("");
 +	xrdb_load();
-+	signal(SIGUSR2, reload);
++ struct sigaction sa_action={.sa_handler=reload, .sa_flags = 0}; sigemptyset(&sa_action.sa_mask);
++ sigaction(SIGUSR1, (const struct sigaction * restrict)&sa_action, NULL);
++ sigaction(SIGUSR2, (const struct sigaction * restrict)&sa_action, NULL);
  	cols = MAX(cols, 1);
  	rows = MAX(rows, 1);
  	tnew(cols, rows);

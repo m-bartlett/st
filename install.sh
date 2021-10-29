@@ -21,7 +21,7 @@ PATCHES=(
   delkey
   # keyboard-select
   w3m
-  xresources-usr1-reload
+  xresources-usr2-reload
   # vim-browse-custom
 )
 
