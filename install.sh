@@ -5,28 +5,14 @@ PATCHES=(
   newterm-orphan
   boxdraw
   ligatures-boxdraw
-  # scrollback
-  # scrollback-mouse
-  # scrollback-mouse-altscreen
-  # scrollback-clearhistory
-  # anysize
-  # vertcenter
-  # blinking_cursor
-
   font2
   font-zoom-remap
-
-  # clipboard
-  # csi_22_23-save-and-restore-window-title
   delkey
-  # keyboard-select
   w3m
-  xresources-usr2-reload
-  # vim-browse-custom
+  xresources-usr1-reload
 )
 
-export _TMPDIR="$(mktemp -d "/tmp/tmp.XXXXXXXX")";
-trap "rm -rf $_TMPDIR" EXIT;
+trap "rm -rf ${_TMPDIR:="$(mktemp -d "/tmp/tmp.XXXXXXXX")"}" EXIT;
 
 info() { printf "\e[34m$@\e[0m\n"; }
 warn() { printf "\e[33m$@\e[0m\n"; }
