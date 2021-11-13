@@ -2,6 +2,11 @@
 st is a simple terminal emulator for X which sucks ~~less~~
 
 
+### Dependencies
+- libxft-bgra instead of libxft -> `Yay -S libxft-bgra`
+- harfbuzz -> `pacman -S harfbuzz`
+-
+
 ### My Customizations
 - [scroll up and down by **half** pages using Shift + Page(Up/Down)](patches/scrollback.diff)
 
