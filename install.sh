@@ -1,20 +1,20 @@
 #!/usr/bin/env bash
 
 PATCHES=(
-  # newterm-orphan
+  newterm-orphan
   anysize
   boxdraw
   ligatures-boxdraw
   vertcenter
   wide-glyph
-  # font2
-  # font-zoom-remap
-  # delkey
-  # w3m
-  # xresources-usr1-reload
+  font2
+  font-zoom-remap
+  delkey
+  w3m
+  xresources-usr1-reload
 )
 
-trap "echo failed $_TMPDIR; read ; rm -rf ${_TMPDIR:="$(mktemp -d "/tmp/tmp.XXXXXXXX")"}" EXIT;
+trap "rm -rf ${_TMPDIR:="$(mktemp -d "/tmp/tmp.XXXXXXXX")"}" EXIT;
 
 info() { printf "\e[34m$@\e[0m\n"; }
 warn() { printf "\e[33m$@\e[0m\n"; }
