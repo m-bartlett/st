@@ -5,8 +5,9 @@ PATCHES=(
   anysize
   boxdraw
   ligatures-boxdraw
+  clearwin
   vertcenter
-  wide-glyph
+  wideglyph-anysize-vertcenter
   font2
   font-zoom-remap
   delkey
