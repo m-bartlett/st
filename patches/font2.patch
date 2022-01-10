@@ -23,7 +23,7 @@ index 482901e..676719e 100644
 +/* Spare fonts */
 +static char *font2[] = {
 + "JoyPixels:pixelsize=12.5:antialias=true:autohint=true",
-+ "Symbola:pixelsize=12.5:antialias=true:autohint=true",
++ //"Symbola:pixelsize=12.5:antialias=true:autohint=true",
 +};
 +
  static int borderpx = 2;

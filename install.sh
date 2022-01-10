@@ -11,6 +11,7 @@ PATCHES=(
   font2
   font-zoom-remap
   delkey
+  alpha
   w3m
   xresources-usr1-reload
 )
