@@ -22,8 +22,8 @@ index 482901e..676719e 100644
  static char *font = "VictorMono Nerd Font Mono:pixelsize=10.5:antialias=true:autohint=true";
 +/* Spare fonts */
 +static char *font2[] = {
-+ "JoyPixels:pixelsize=12.5:antialias=true:autohint=true",
-+ //"Symbola:pixelsize=12.5:antialias=true:autohint=true",
++ "Symbols Nerd Font Mono:pixelsize=13:minspace=false:antialias=true:autohint=true",
++ "JoyPixels:pixelsize=13.5:antialias=true:autohint=true",
 +};
 +
  static int borderpx = 2;
