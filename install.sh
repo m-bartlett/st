@@ -18,8 +18,8 @@ PATCHES=(
 
 trap "rm -rf ${_TMPDIR:="$(mktemp -d "/tmp/tmp.XXXXXXXX")"}" EXIT;
 
-info() { printf "\e[34m$@\e[0m\n"; }
-warn() { printf "\e[33m$@\e[0m\n"; }
+info() { printf "\e[94m$@\e[0m\n"; }
+warn() { printf "\e[93m$@\e[0m\n"; }
 
 __dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 

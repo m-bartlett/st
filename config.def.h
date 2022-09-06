@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 static char *font = "Victor Mono:size=10.4:minspace=true:antialias=true:autohint=true";
-static int borderpx = 7;
+static int borderpx = 8;
 
 /*
  * What program is execed by st depends of these precedence rules:
