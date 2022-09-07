@@ -2,12 +2,16 @@
 
 PATCHES=(
   newterm-orphan
-  anysize
-  boxdraw
-  ligatures-boxdraw
+  bold-is-not-bright
+  # anysize
+  # boxdraw
+  # ligatures-boxdraw
+  ligatures
   clearwin
-  vertcenter
-  wideglyph-anysize-vertcenter
+  # vertcenter
+  # wideglyph-anysize-vertcenter
+  # wideglyph-boxdraw
+  wide-glyph
   font2
   font-zoom-remap
   delkey
@@ -31,11 +35,18 @@ for p in ${PATCHES[@]}; do
   info $p
   patch -F5 < "patches/$p."*
   if (($?)); then
-    warn "$p did not apply successfully"; sleep 0.75
+    warn "$p did not apply successfully"; sleep 0.25
     echo $_TMPDIR
     read
     exit 1
   fi
 done
 
-make && sudo make install
+
+make && sudo make install \
+|| {
+  warn "Could not compile"; sleep 0.75
+  echo $_TMPDIR
+  read
+  exit 1
+}
