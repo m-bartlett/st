@@ -4,14 +4,11 @@ PATCHES=(
   newterm-orphan
   bold-is-not-bright
   # anysize
-  # boxdraw
-  # ligatures-boxdraw
-  ligatures
+  boxdraw
+  wide-glyph-boxdraw
+  ligatures-boxdraw
   clearwin
   # vertcenter
-  # wideglyph-anysize-vertcenter
-  # wideglyph-boxdraw
-  wide-glyph
   font2
   font-zoom-remap
   delkey
