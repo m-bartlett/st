@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Victor Mono:size=10.4:minspace=true:antialias=true:autohint=true";
+static char *font = "VictorMono Nerd Font:pixelsize=15:minspace=true:antialias=true:autohint=true";
 static int borderpx = 8;
 
 /*
@@ -147,8 +147,8 @@ static unsigned int cursorshape = 2;
  * Default columns and rows numbers
  */
 
-static unsigned int cols = 80;
-static unsigned int rows = 24;
+static unsigned int cols = 70;
+static unsigned int rows = 17;
 
 /*
  * Default colour and shape of the mouse cursor

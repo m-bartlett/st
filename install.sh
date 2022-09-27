@@ -2,7 +2,6 @@
 
 PATCHES=(
   newterm-orphan
-  bold-is-not-bright
   # anysize
   boxdraw
   wide-glyph-boxdraw
@@ -15,6 +14,7 @@ PATCHES=(
   # alpha
   w3m
   xresources-usr1-reload
+  bold-is-not-bright
 )
 
 trap "rm -rf ${_TMPDIR:="$(mktemp -d "/tmp/tmp.XXXXXXXX")"}" EXIT;

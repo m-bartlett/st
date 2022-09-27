@@ -13,8 +13,8 @@ index 91ab8ca..717b2f0 100644
  static char *font = "VictorMono Nerd Font Mono:pixelsize=10.5:antialias=true:autohint=true";
 +/* Spare fonts */
 +static char *font2[] = {
-+ "Symbols Nerd Font Mono:pixelsize=14:minspace=false:antialias=true:autohint=true",
-+ "Noto Emoji:pixelsize=13.5:antialias=true:autohint=true",
++ "JoyPixels:pixelsize=14:minspace=false:antialias=true:autohint=true",
++ //"Noto Emoji:pixelsize=13.5:antialias=true:autohint=true",
 +};
 +
  static int borderpx = 2;
