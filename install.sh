@@ -16,6 +16,7 @@ PATCHES=(
   xresources-usr1-reload
   bold-is-not-bright
   font-height-background
+  silence-errors
 )
 
 trap "rm -rf ${_TMPDIR:="$(mktemp -d "/tmp/tmp.XXXXXXXX")"}" EXIT;

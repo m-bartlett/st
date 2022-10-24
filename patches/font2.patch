@@ -14,7 +14,7 @@ index 91ab8ca..717b2f0 100644
 +/* Spare fonts */
 +static char *font2[] = {
 + "JoyPixels:pixelsize=14:minspace=false:antialias=true:autohint=true",
-+ //"Noto Emoji:pixelsize=13.5:antialias=true:autohint=true",
++ "Symbola:pixelsize=14:minspace=true:antialias=true:autohint=true",
 +};
 +
  static int borderpx = 2;
