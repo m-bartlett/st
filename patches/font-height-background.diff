@@ -1,0 +1,87 @@
+diff --git a/x.c b/x.c
+index d09282b..d0451d4 100644
+--- a/x.c
++++ b/x.c
+@@ -1583,7 +1583,7 @@ xdrawglyphfontspecs(const XftGlyphFontSpec *specs, Glyph base, int len, int x, i
+         if (winy + win.ch >= borderpx + win.th)
+             xclear(winx, winy + win.ch, winx + width, win.h);
+         /* Fill the background */
+-        XftDrawRect(xw.draw, bg, winx, winy, width, win.ch);
++        XftDrawRect(xw.draw, bg, winx, winy+win.cyo, width, dc.font.height);
+     }
+ 
+ 
+@@ -1674,36 +1674,41 @@ xdrawcursor(int cx, int cy, Glyph g, int ox, int oy, Glyph og, Line line, int le
+ 		case 3: /* Blinking Underline */
+ 		case 4: /* Steady Underline */
+ 			XftDrawRect(xw.draw, &drawcol,
+-					borderpx + cx * win.cw,
+-					borderpx + (cy + 1) * win.ch - \
+-						cursorthickness,
+-					win.cw, cursorthickness);
++				    /*left=*/borderpx + cx * win.cw,
++				    /*bottom=*/borderpx + (cy + 1) * win.ch - 1 - win.cyo - cursorthickness,
++				    win.cw,
++				    cursorthickness);
+ 			break;
+ 		case 5: /* Blinking bar */
+ 		case 6: /* Steady bar */
+ 			XftDrawRect(xw.draw, &drawcol,
+-					borderpx + cx * win.cw,
+-					borderpx + cy * win.ch,
+-					cursorthickness, win.ch);
++						/*left=*/borderpx + cx * win.cw,
++			            /*top=*/borderpx + cy * win.ch + win.cyo,
++			            cursorthickness,
++			            /*height1=*/win.ch - win.cyo*2);
+ 			break;
+ 		}
+ 	} else {
+-		XftDrawRect(xw.draw, &drawcol,
+-				borderpx + cx * win.cw,
+-				borderpx + cy * win.ch,
+-				win.cw - 1, 1);
+-		XftDrawRect(xw.draw, &drawcol,
+-				borderpx + cx * win.cw,
+-				borderpx + cy * win.ch,
+-				1, win.ch - 1);
+-		XftDrawRect(xw.draw, &drawcol,
+-				borderpx + (cx + 1) * win.cw - 1,
+-				borderpx + cy * win.ch,
+-				1, win.ch - 1);
+-		XftDrawRect(xw.draw, &drawcol,
+-				borderpx + cx * win.cw,
+-				borderpx + (cy + 1) * win.ch - 1,
+-				win.cw, 1);
++		XftDrawRect(xw.draw, &drawcol, 
++			    /*left=*/borderpx + cx * win.cw, 
++			    /*top=*/borderpx + cy * win.ch + win.cyo,
++			    win.cw - 1,
++			    1);
++		XftDrawRect(xw.draw, &drawcol, 
++			    /*left=*/borderpx + cx * win.cw, 
++			    /*top=*/borderpx + cy * win.ch + win.cyo,
++			    1,
++			    /*height=*/win.ch - 1 - win.cyo*2);
++		XftDrawRect(xw.draw, &drawcol, 
++			    /*right=*/borderpx + (cx + 1) * win.cw - 1,
++			    /*top=*/borderpx + cy * win.ch + win.cyo,
++			    1,
++			    /*height=*/win.ch - 1 - win.cyo*2);
++		XftDrawRect(xw.draw, &drawcol, 
++			    /*left=*/borderpx + cx * win.cw,
++			    /*bottom=*/borderpx + (cy + 1) * win.ch - 1 - win.cyo,
++			    win.cw,
++			    1);
+ 	}
+ }
+ 
+@@ -1761,6 +1766,8 @@ xdrawline(Line line, int x1, int y1, int x2)
+ 
+ 	numspecs_cached = xmakeglyphfontspecs(xw.specbuf, &line[x1], x2 - x1, x1, y1);
+ 
++	XftDrawRect(xw.draw, &dc.col[defaultbg], borderpx, y1*win.ch + borderpx, x2*win.cw, win.ch);
++
+ 	/* Draw line in 2 passes: background and foreground. This way wide glyphs
+        won't get truncated (#223) */
+ 	for (int dmode = DRAW_BG; dmode <= DRAW_FG; dmode <<= 1) {

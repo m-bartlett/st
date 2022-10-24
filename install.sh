@@ -6,8 +6,8 @@ PATCHES=(
   boxdraw
   wide-glyph-boxdraw
   ligatures-boxdraw
+  vertcenter-wide-glyph-boxdraw
   clearwin
-  # vertcenter
   font2
   font-zoom-remap
   delkey
@@ -15,6 +15,8 @@ PATCHES=(
   w3m
   xresources-usr1-reload
   bold-is-not-bright
+  font-height-background
+  silence-errors
 )
 
 trap "rm -rf ${_TMPDIR:="$(mktemp -d "/tmp/tmp.XXXXXXXX")"}" EXIT;
