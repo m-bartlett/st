@@ -13,10 +13,12 @@ PATCHES=(
   delkey
   # alpha
   w3m
-  xresources-usr1-reload
+  # xresources-usr1-reload
   bold-is-not-bright
   font-height-background
   silence-errors
+  urlonclick
+  initialworkingdir
 )
 
 trap "rm -rf ${_TMPDIR:="$(mktemp -d "/tmp/tmp.XXXXXXXX")"}" EXIT;
